@@ -1,5 +1,6 @@
 "use client";
-import { Todo } from "@/types";
+import { deleteTodo, toggleTodo } from "@/actions/todo-actions";
+import { Todo } from "@prisma/client";
 import Link from "next/link";
 
 type TodoItemProps = {
@@ -7,11 +8,11 @@ type TodoItemProps = {
 };
 export const TodoItem = ({ todo }: TodoItemProps) => {
   const handleDeleteTodo = () => {
-    // deleteTodo({ id: todo.id });
+    deleteTodo(todo.id);
   };
 
   const handleToggleTodo = () => {
-    // toggleTodo({ id: todo.id, completed: !todo.completed });
+    toggleTodo(todo.id);
   };
 
   return (
