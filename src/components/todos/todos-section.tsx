@@ -1,3 +1,4 @@
+import { Todo } from "@prisma/client";
 import { TodoForm } from "./todo-form";
 import { TodoItem } from "./todo-item";
 

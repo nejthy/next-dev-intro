@@ -1,14 +1,22 @@
 import { Header } from "@/components/header";
 import prisma from "@/lib/prisma";
-import Link from "next/link";
+import { ToggleButton } from "./components/toggle-button";
+import { HomeButton } from "./components/home-button";
+import { Metadata } from "next";
 
 async function getTodo(id: number) {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return await prisma.todo.findUnique({
     where: {
       id: id,
     },
   });
 }
+
+export const metadata: Metadata = {
+  title: "...",
+  description: "...",
+};
 
 const TodoDetailPage = async ({ params }: { params: { id: string } }) => {
   // Simulating fetching a todo item based on the ID from params
@@ -43,12 +51,8 @@ const TodoDetailPage = async ({ params }: { params: { id: string } }) => {
         </div>
 
         <div>
-          <Link href="/">
-            <button className="back-button">Back to Home</button>
-          </Link>
-          <button className="complete-button">
-            {todo.completed ? "Undo" : "Complete"}
-          </button>
+          <HomeButton />
+          <ToggleButton todo={todo} />
         </div>
       </div>
     </>
