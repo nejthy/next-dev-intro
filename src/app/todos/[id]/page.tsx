@@ -5,7 +5,6 @@ import { HomeButton } from "./components/home-button";
 import { Metadata } from "next";
 
 async function getTodo(id: number) {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
   return await prisma.todo.findUnique({
     where: {
       id: id,

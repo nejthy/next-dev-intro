@@ -1,7 +1,6 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
 export async function createTodo(formData: FormData) {
@@ -39,8 +38,6 @@ export async function toggleTodo(id: number) {
     data: {
       completed: !todo.completed,
     },
-  await prisma.todo.create({
-    data: newTodo,
   });
   revalidatePath("/");
   revalidatePath(`/todos/${id}`);
