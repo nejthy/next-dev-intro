@@ -3,8 +3,8 @@
   --bg: #1a1b1e;
   --bg-secondary: #202225;
   --surface: #2c2d31;
-  --primary: #7289da;
-  --primary-hover: #5b6eae;
+  --primary: #3e3c3c6e;
+  --primary-hover: #404248;
   --text: #ffffff;
   --text-secondary: #a0a0a0;
   --danger: #ed4245;
@@ -13,6 +13,11 @@
   --radius: 12px;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+li {
+  cursor: pointer;
+}
+
 
 * {
   margin: 0;
@@ -101,9 +106,10 @@ button:disabled:hover {
 .todo-container {
   background: var(--surface);
   border-radius: var(--radius);
-  padding: 1rem;
+  padding: 2.2rem 2rem 2rem 2rem;  /* více nahoře a po stranách */
   box-shadow: var(--shadow);
 }
+
 
 ul {
   list-style: none;
@@ -315,7 +321,7 @@ footer {
 }
 
 .todo-detail-status .active {
-  color: var(--primary);
+  color:white;
   font-weight: bold;
 }
 
@@ -357,4 +363,117 @@ footer {
 
 .complete-button:hover {
   background-color: var(--success-hover);
+}
+
+.add-todo-btn {
+  background-color: var(--primary);
+  color: rgb(255, 255, 255);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  margin: 0 auto 1.2rem auto;
+  display: block;
+  transition: background 0.15s;
+  text-decoration: none;
+}
+.add-todo-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.todo-form-title {
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+  color: var(--text);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.todo-form-label {
+  color: white;
+  font-size: 0.98rem;
+  display: block;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
+.todo-form-group {
+  margin-bottom: 1.1rem;
+}
+
+.todo-form-priority {
+  width: 120px;
+}
+
+.todo-form-btn {
+  width: 100%;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-top: 0.6rem;
+  background: var(--success);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: background 0.15s;
+}
+
+.todo-form-btn:hover {
+  background: var(--success-hover);
+}
+
+
+
+
+.input,
+textarea.input,
+select.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: var(--bg-secondary); /* nebo var(--surface), podle toho co víc sedí */
+  color: var(--text);
+  font-size: 1rem;
+  border-radius: var(--radius);
+  outline: none;
+  transition: background 0.2s;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+textarea.input:focus,
+.input:focus,
+select.input:focus {
+  background: var(--surface); /* lehce zvýrazní při focusu */
+}
+
+textarea.input::placeholder {
+  color: var(--text-secondary);
+  opacity: 1;
+}
+
+.todo-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0 2.5rem 0;
+  color: white;
+  background: none;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  padding: 0.45rem 1rem 0.45rem 0.8rem;
+  transition: background 0.17s, color 0.17s;
+  text-decoration: none;
+}
+
+
+
+.todo-back-link .arrow {
+  font-size: 1.2em;
+  margin-right: 0.3em;
+  line-height: 1;
 }

@@ -39,7 +39,7 @@ const TodoDetailPage = async ({ params }: { params: { id: string } }) => {
             </span>
           </div>
           <div className="todo-detail-status">
-            Priority: <span className={"completed"}>{todo.priority}</span>
+            Priority: <span className={"active"}>{todo.priority}</span>
           </div>
 
           {todo.description && (
