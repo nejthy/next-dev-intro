@@ -1,6 +1,6 @@
 // app/todos/new/page.jsx
+import TodoForm from "@/components/todos/todo-form";
 import Link from "next/link";
-import { TodoForm } from "../../../components/todos/todo-form";
 
 export default function TodoNewPage() {
   return (

@@ -14,7 +14,7 @@ export default async function Home() {
   return (
     <>
       <Header title="My Todo List" subtitle="Add your tasks" />
-      <Link href="/todos/new" className="add-todo-btn">
+      <Link href="/new-todo" className="add-todo-btn">
         Přidat nový úkol
       </Link>
 
