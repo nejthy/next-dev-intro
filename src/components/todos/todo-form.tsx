@@ -79,10 +79,10 @@ export default function TodoForm() {
           className="input todo-form-label"
           required
         >
-          <option value="work">Práce</option>
-          <option value="home">Domov</option>
-          <option value="hobby">Hobby</option>
-          <option value="school">Škola</option>
+          <option value="work">work</option>
+          <option value="home">home</option>
+          <option value="hobby">hobby</option>
+          <option value="school">school</option>
         </select>
       </div>
       <div className="todo-form-group">
@@ -97,9 +97,9 @@ export default function TodoForm() {
           className="input todo-form-label"
           required
         >
-          <option value="low">Nízká</option>
-          <option value="medium">Střední</option>
-          <option value="high">Vysoká</option>
+          <option value="low">low</option>
+          <option value="medium">medium</option>
+          <option value="high">high</option>
         </select>
       </div>
       <button type="submit" className="todo-form-btn" disabled={isPending}>

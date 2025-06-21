@@ -315,14 +315,39 @@ footer {
   margin-bottom: 15px;
 }
 
-.todo-detail-status .completed {
-  color: var(--success);
+.todo-detail-status .active {
+  color: var(--text);    
   font-weight: bold;
 }
 
-.todo-detail-status .active {
-  color:white;
+.todo-detail-status .completed {
+  color: var(--success); 
   font-weight: bold;
+}
+
+/* PRIORITY */
+.priority-low {
+  color: var(--success);        /* zelená */
+}
+.priority-medium {
+  color: #f1c40f;               /* žlutá (warning) */
+}
+.priority-high {
+  color: var(--danger);         /* červená */
+}
+
+/* CATEGORY */
+.category-work {
+  color: #3498db;               /* modrá */
+}
+.category-home {
+  color: #9b59b6;               /* fialová */
+}
+.category-hobby {
+  color: #e67e22;               /* oranžová */
+}
+.category-school {
+  color: #1abc9c;               /* tyrkysová */
 }
 
 .todo-detail-description {
@@ -509,3 +534,35 @@ textarea.input::placeholder {
   margin-right: 0.3em;
   line-height: 1;
 }
+
+/* filtr kategorie */
+
+.chip {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: 
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.chip--inactive {
+  background: transparent;
+  color: #BBBBBB;           
+  border: 1px solid #DDDDDD; 
+}
+.chip--inactive:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.chip--active {
+  background: var(--primary-hover); 
+  color: var(--text);               
+  border: 1px solid var(--primary-hover);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+

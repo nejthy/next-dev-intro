@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 };
 
 const TodoDetailPage = async ({ params }: { params: { id: string } }) => {
-  // Simulating fetching a todo item based on the ID from params
   const queryParams = await params;
   const todo = await getTodo(Number(queryParams.id));
 
@@ -39,10 +38,12 @@ const TodoDetailPage = async ({ params }: { params: { id: string } }) => {
             </span>
           </div>
           <div className="todo-detail-status">
-            Priority: <span className={"active"}>{todo.priority}</span>
+            Priority:{" "}
+            <span className={`priority-${todo.priority}`}>{todo.priority}</span>
           </div>
           <div className="todo-detail-status">
-            Category: <span className={"active"}>{todo.category}</span>
+            Category:{" "}
+            <span className={`category-${todo.category}`}>{todo.category}</span>
           </div>
 
           {todo.description && (
