@@ -1,8 +1,9 @@
 import { Header } from "@/components/header";
 import prisma from "@/lib/prisma";
-import { ToggleButton } from "./components/toggle-button";
-import { HomeButton } from "./components/home-button";
 import { Metadata } from "next";
+import { HomeButton } from "../components/home-button";
+import { ToggleButton } from "../components/toggle-button";
+import { DeleteButton } from "../components/delete-button";
 
 async function getTodo(id: number) {
   return await prisma.todo.findUnique({
@@ -53,9 +54,10 @@ const TodoDetailPage = async ({ params }: { params: { id: string } }) => {
           )}
         </div>
 
-        <div>
+        <div className="todo-detail-actions">
           <HomeButton />
           <ToggleButton todo={todo} />
+          <DeleteButton todo={todo} />
         </div>
       </div>
     </>

@@ -1,5 +1,7 @@
 "use client";
 
+import { DeleteButton } from "@/app/todos/components/delete-button";
+import { ToggleButton } from "@/app/todos/components/toggle-button";
 import { Todo } from "@prisma/client";
 import { useRouter } from "next/navigation";
 
@@ -8,18 +10,6 @@ type TodoItemProps = {
 };
 export const TodoItem = ({ todo }: TodoItemProps) => {
   const router = useRouter();
-
-  const handleDeleteTodo = async (e: React.MouseEvent) => {
-    e.stopPropagation();
-    await fetch(`/api/todos/${todo.id}`, { method: "DELETE" });
-    router.refresh();
-  };
-
-  const handleToggleTodo = async (e: React.MouseEvent) => {
-    e.stopPropagation();
-    await fetch(`/api/todos/${todo.id}`, { method: "POST" });
-    router.refresh();
-  };
 
   const handleGoToDetail = () => {
     router.push(`/todos/${todo.id}`);
@@ -33,10 +23,8 @@ export const TodoItem = ({ todo }: TodoItemProps) => {
       onClick={handleGoToDetail}
     >
       <span>{todo.name}</span>
-      <button onClick={handleDeleteTodo}>Delete</button>
-      <button onClick={handleToggleTodo} className="toggle">
-        {todo.completed ? "Undo" : "Completed"}
-      </button>
+      <DeleteButton todo={todo} />
+      <ToggleButton todo={todo} />
     </li>
   );
 };

@@ -8,25 +8,21 @@ interface Props {
   todo: Todo;
 }
 
-export const ToggleButton = ({ todo }: Props) => {
+export const DeleteButton = ({ todo }: Props) => {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
-  const handleToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     startTransition(async () => {
-      await fetch(`/api/todos/${todo.id}`, { method: "POST" });
-      router.refresh();
+      await fetch(`/api/todos/${todo.id}`, { method: "DELETE" });
+      router.push("/");
     });
   };
 
   return (
-    <button
-      onClick={handleToggle}
-      disabled={pending}
-      className="complete-button"
-    >
-      {todo.completed ? "Undo" : "Complete"}
+    <button onClick={handleDelete} disabled={pending} className="delete-button">
+      Delete
       {pending && <span className="ml-2">…</span>}
     </button>
   );

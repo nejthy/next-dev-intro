@@ -386,6 +386,14 @@ footer {
   display: inline-block;
 }
 
+.delete-button {
+  background-color: var(--danger);
+  color: white;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-weight: bold;
+  display: inline-block;
+}
 .complete-button:hover {
   background-color: var(--success-hover);
 }
@@ -415,6 +423,12 @@ footer {
   gap: 1.25rem;
 }
 
+.todo-detail-actions {
+  display: flex;
+  justify-content: flex-start; 
+  gap: 0.5rem;                  
+  margin-top: 1rem;            
+}
 
 .add-todo-btn {
   background-color: var(--primary);
