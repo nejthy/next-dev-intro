@@ -4,8 +4,11 @@ import prisma from "@/lib/prisma";
 import Link from "next/link";
 
 const fetchTodos = async () => {
-  const response = await prisma.todo.findMany();
-  return response;
+  return await prisma.todo.findMany({
+    orderBy: {
+      category: "asc",
+    },
+  });
 };
 
 export default async function Home() {

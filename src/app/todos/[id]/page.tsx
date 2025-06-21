@@ -41,6 +41,9 @@ const TodoDetailPage = async ({ params }: { params: { id: string } }) => {
           <div className="todo-detail-status">
             Priority: <span className={"active"}>{todo.priority}</span>
           </div>
+          <div className="todo-detail-status">
+            Category: <span className={"active"}>{todo.category}</span>
+          </div>
 
           {todo.description && (
             <div className="todo-detail-description">

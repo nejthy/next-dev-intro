@@ -19,10 +19,18 @@ model Todo {
   description String?
   completed   Boolean  @default(false)
   priority    Priority @default(medium)
+  category    Category @default(work)
 }
 
 enum Priority {
   low
   medium
   high
+}
+
+enum Category {
+  work
+  home
+  hobby
+  school
 }

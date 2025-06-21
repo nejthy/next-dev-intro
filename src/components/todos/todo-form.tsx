@@ -9,6 +9,7 @@ export default function TodoForm() {
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
+  const [category, setCategory] = useState("work");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ export default function TodoForm() {
     const res = await fetch("/api/todos", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, description, priority }),
+      body: JSON.stringify({ name, description, priority, category }),
     });
 
     if (!res.ok) {
@@ -26,6 +27,7 @@ export default function TodoForm() {
       setName("");
       setDescription("");
       setPriority("low");
+      setCategory("work");
       router.push("/");
     }
     setIsPending(false);
@@ -67,6 +69,23 @@ export default function TodoForm() {
         />
       </div>
       <div className="todo-form-group">
+        <label className="todo-form-label" htmlFor="category">
+          Category
+        </label>
+        <select
+          name="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="input todo-form-label"
+          required
+        >
+          <option value="work">Práce</option>
+          <option value="home">Domov</option>
+          <option value="hobby">Hobby</option>
+          <option value="school">Škola</option>
+        </select>
+      </div>
+      <div className="todo-form-group">
         <label className="todo-form-label" htmlFor="priority">
           Priorita
         </label>
@@ -75,7 +94,7 @@ export default function TodoForm() {
           name="priority"
           value={priority}
           onChange={(e) => setPriority(e.target.value)}
-          className="input todo-form-priority"
+          className="input todo-form-label"
           required
         >
           <option value="low">Nízká</option>

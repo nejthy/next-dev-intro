@@ -1,7 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { Priority } from "@prisma/client";
+import { Category, Priority } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -10,11 +10,14 @@ export async function createTodo(formData: FormData) {
   const todoName = formData.get("name") as string;
   const description = formData.get("description") as string;
   const priority = formData.get("priority") as Priority;
+  const category = formData.get("category") as Category;
+
 
   const newTodo = {
     name: todoName,
     description: description,
-    priority: priority
+    priority: priority,
+    category: category
   };
 
   await prisma.todo.create({
