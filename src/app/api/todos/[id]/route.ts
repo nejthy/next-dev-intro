@@ -2,7 +2,6 @@
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
-// DELETE /api/todos/[id]
 export async function DELETE(
   req: Request,
   { params }: { params: { id: string } }
@@ -25,7 +24,7 @@ export async function POST(
   req: Request,
   { params }: { params: { id: string } }
 ) {
-  const id = Number(params.id);
+  const id =  Number(params.id);
 
   const todo = await prisma.todo.findUnique({ where: { id } });
   if (!todo) {
