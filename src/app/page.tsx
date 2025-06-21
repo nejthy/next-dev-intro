@@ -20,7 +20,7 @@ export default async function Home() {
 
       <TodosSection todos={todos} />
       <footer>
-        <p>Click on a task to mark it as completed</p>
+        <p>Add your todos</p>
       </footer>
     </>
   );

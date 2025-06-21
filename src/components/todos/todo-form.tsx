@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function TodoForm() {
@@ -7,6 +8,7 @@ export default function TodoForm() {
   const [priority, setPriority] = useState("low");
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,6 +26,7 @@ export default function TodoForm() {
       setName("");
       setDescription("");
       setPriority("low");
+      router.push("/");
     }
     setIsPending(false);
   };
