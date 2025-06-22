@@ -7,8 +7,8 @@ export async function DELETE(
 ) {
   const id = Number(params.id);
 
-  if (isNaN(id)) {
-    return NextResponse.json({ error: "Invalid id" }, { status: 400 });
+  if (!id) {
+    return NextResponse.json({ error: "No id" }, { status: 400 });
   }
 
   await prisma.todo.delete({

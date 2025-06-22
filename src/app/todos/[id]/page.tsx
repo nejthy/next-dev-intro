@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const TodoDetailPage = async ({ params }: { params: { id: string } }) => {
-  const queryParams = await params;
+  const queryParams = params;
   const todo = await getTodo(Number(queryParams.id));
 
   if (!todo) {
