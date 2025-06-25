@@ -26,8 +26,8 @@ export default function TodoForm() {
     } else {
       setName("");
       setDescription("");
-      setPriority("low");
-      setCategory("work");
+      setPriority("");
+      setCategory("");
       router.push("/");
     }
     setIsPending(false);
